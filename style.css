@@ -1,0 +1,118 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url("css/style.css");
+
+*{
+margin: 0;
+padding: 0;
+}
+section,article,aside,header,nav,footer,main,figure{
+	width: 760px;
+	margin-left: auto;
+	margin-right: auto;
+}
+img{
+	display: block;
+}
+a{
+	display: block;
+	border: none;
+}
+ul,li{
+	list-style-type: none;
+}
+body{
+	min-width: 1000px;
+	font-size: 14px;
+	color:#4D200C;
+	font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, "sans-serif","MS Serif", "New York", "serif";
+	line-height: 1.7em;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+header{
+	background-position: top;
+}
+#headerInner{
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 110px;
+	display: flex;
+}
+#logo{
+	margin-right: auto;
+	margin-top: 20px;
+}
+#img_tel{
+	margin-right: 20px;
+	margin-top: 33px;
+}
+#btn_reserve{
+	margin-right: 0;
+	margin-top: 20px;
+}
+nav{
+	background: #63B229;
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+nav li{
+    list-style: none;
+	text-align: center;
+	width: 100%;
+}
+nav li a{
+    display: block;
+    padding: 10px;
+    border-right: none;
+    text-decoration: none;
+    color: #ffffff;
+}
+nav ul li a:hover{
+    color: #4D200C;
+}
+#contens{
+	width: 760px;
+	margin-top: 5px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 45px;
+    overflow: hidden;
+}
+#main{
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 45px;
+	overflow: hidden;
+}
+#mainInner{
+	overflow: hidden;
+}
+main h2{
+    background-color: #63B229;
+	padding-top:10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	width:  760px;
+}
+main p{
+	padding: 10px;
+}
+#mainInner{
+	overflow: hidden;
+	width: 550px;
+}
+#main_bnr{
+	float: right;
+	width:201px;
+}
+#main_bnr li{
+	margin-bottom: 5px
+}
+
+
+
