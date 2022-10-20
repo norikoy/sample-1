@@ -6,113 +6,693 @@
 margin: 0;
 padding: 0;
 }
-section,article,aside,header,nav,footer,main,figure{
-	width: 760px;
-	margin-left: auto;
-	margin-right: auto;
+ul,li{
+	list-style: none;
 }
+.maininner{
+	padding: 0 4% 0 4%;
+}
+
 img{
 	display: block;
 }
-a{
-	display: block;
-	border: none;
-}
-ul,li{
-	list-style-type: none;
-}
 body{
-	min-width: 1000px;
+	/* maxwidth:1000px; */
 	font-size: 14px;
 	color:#4D200C;
-	font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, "sans-serif","MS Serif", "New York", "serif";
+	font-family: 'Noto Sans JP', sans-serif;
 	line-height: 1.7em;
 	background-color: #FFFFFF;
 	width: 100%;
 }
-header{
-	background-position: top;
+@media(min-width:768px){
+	html{
+		font-size:16px;
+	}
 }
-#headerInner{
-	width: 760px;
-	margin-right: auto;
-	margin-left: auto;
-	height: 110px;
-	display: flex;
+/*レスポンシブイメージと画像したスペース防止 */
+img{
+	max-width: 100%;
+	height:auto;
+	vertical-align: bottom;
 }
-#logo{
-	margin-right: auto;
-	margin-top: 20px;
-}
-#img_tel{
-	margin-right: 20px;
-	margin-top: 33px;
-}
-#btn_reserve{
-	margin-right: 0;
-	margin-top: 20px;
-}
-nav{
-	background: #63B229;
-}
-nav ul{
+/**
+ * ***************************************
+ * ヘッダー
+ * ***************************************
+ *
+ * ヘッダーコンテナ
+ 
+@media(min-width:768px){
+	.headerInner{
+		margin: 0 auto;
+		padding: 0 20px;
+		max-width: 1040px;
+	}
+}*/
+/**
+ * ---------------------------------------
+ * ヘッダーモジュール
+ */
+
+/* ヘッダーロゴとモバイルナビボタン 
+  .sitetitle {
     display: flex;
-    justify-content: center;
-}
-nav li{
-    list-style: none;
+	justify-content:space-around;
 	text-align: center;
+}*/
+/* ヘッダーロゴ スマホ用*/
+
+/* ヘッダーロゴ PC用
+@media(min-width:768px){
+	.header-logo{
+		padding-left: 15px;
+	}
+	.header-logo img{
+		width: 262px;
+	}
+	.img_tel{
+		margin-left: 200px;
+		margin-top: 12px;
+	}
+	.btn_reserve{
+		margin-top: 2px;
+		margin-left: 10px;
+	}
+}*/
+/* モバイル向けボタン 
+.navbtn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url("../images/btn.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.navbtn.close{
+  background-image: url("../images/btn_close.svg");
+}
+@media(min-width:768px){
+	.navbtn{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 768px){
+.header-nav{
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+		background: #63B229;
+	}
+	.header-nav ul{
+		height: 40px;
+	}
+	.header-nav li{
+		padding: 0 auto;
+	}
+.header-nav ul li a{
+        display: block;
+	   font-weight:bold;
+	    padding: 2em;
+	    border-bottom:1px dashed #C47944; 
+		text-decoration: none;
+        color:#FFFFFF;
+	    margin: 0 auto;
+	    
+	}
+.header-nav li a:hover{
+	  background: #b1d994;
+	  
+	}
+}
+@media(min-width:768px){
+/*PC向けレイアウト
+	    nav{
+		text-align: center;
+		background: #63B229;
+	}
+	nav ul{
+		display: flex;
+		height: 47px;
+		overflow: hidden;
+	}
+	nav li{
+		display: inline-block;
+        width:100%;
+		padding-top: 13px;
+	}
+	nav li a{
+        overflow: hidden;
+		text-decoration: none;
+        color:#FFFFFF;
+	}
+}
+*/
+nav{
+ width: 100%;
+ height: 70px;
+ position: relative;
+ background:#ffffff;
+}
+.drawer{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-between;
+ position: relative;
+ height: 70px;
+ padding: 0 1em;
+}
+/*ナビゲーション部分*/
+ 
+.menu ul li a {
+display:block;
+  font-weight:bold;
+padding: 2em;
+border-bottom: 1px dotted #CCC;
+  color:#63B229;
+ font-size: 13px;
+  text-decoration:none;
+}
+.menu ul li a:hover
+{background-color:rgba(0,0,0,0.5);
+color:#F5C318;
+} 
+.menu{
+  text-align:center;
+  background-color:rgba(255,255,255,0.5);
+  transition: 0.5s ease;/*滑らかに表示*/
+  -webkit-transform: translateX(100%);/*画面より100%外へ押し出し非表示にさせる*/
+ 
+/*  transform: translateX(-100%);/*右から出す場合は、マイナス100%としてください*/
+ 
+}
+ 
+/*OPEN時の動き*/
+.menu.open {
+ -webkit-transform: translateX(0%);
+ transform: translateX(0%);/*メニューを元の位置へ戻す*/
+ 
+}
+ 
+/*トグルボタンのスタイルを指定*/
+.Toggle {
+    display: block;
+    position: fixed;    /* bodyに対しての絶対位置指定 */
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    z-index: 3;
+  right:15px;
+}
+ 
+.Toggle span {
+    display: block;
+    position: absolute;
+    width: 50px;
+    border-bottom: solid 4px #333;
+    -webkit-transition: .35s ease-in-out;	/*変化の速度を指定*/
+    -moz-transition: .35s ease-in-out;		/*変化の速度を指定*/
+    transition: .35s ease-in-out;			/*変化の速度を指定*/
+ 
+}
+ /*各ボーダー少しずつずらす*/
+.Toggle span:nth-child(1) {
+    top:5px;
+}
+ .Toggle span:nth-child(2) {
+    top: 18px;
+}
+ .Toggle span:nth-child(3) {
+    top: 32px;
+}
+.Toggle.active span:nth-child(1) {
+    top: 18px;
+/* 1番目のspanをマイナス45度に */
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+ 
+/* 2番目と3番目のspanを45度に */
+.Toggle.active span:nth-child(2),
+.Toggle.active span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+ 
+/*----------------------------------ここからPCモニターの記述-----------*/
+@media screen and (min-width: 768px) {
+/*ロゴの大きさを調整*/
+.header-logo{
+	width:262px;
+	margin-left: 40px;}	
+	
+nav{
+ display: flex;
+ max-width: 1050px;
+}
+ 
+.Toggle{
+ display: none;
+}
+.menu{
+width: 100%;
+font-size:0.9em;
+background-color: transparent;
+margin:0 10px;
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+.menu ul{
+ height: 70px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: flex-end;
+ align-items: center;
+}
+.menu ul li a{
+ padding: 0 1em;
+ border-bottom: none;
+}
+.menu ul li a:hover{
+background-color:transparent;
+}
+}
+.sub{
+	display: flex;
+	margin: 0 auto;
 	width: 100%;
 }
-nav li a{
-    display: block;
-    padding: 10px;
-    border-right: none;
-    text-decoration: none;
-    color: #ffffff;
+.sub ul{
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
 }
-nav ul li a:hover{
-    color: #4D200C;
+.sub ul li{
+	margin-bottom: 20px;
+	text-align: center;
 }
-#contens{
-	width: 760px;
-	margin-top: 5px;
-	margin-right: auto;
-	margin-left: auto;
-	margin-bottom: 45px;
-    overflow: hidden;
+.sub ul li a{
+	orphans: .8;
 }
-#main{
-	margin-top: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 45px;
-	overflow: hidden;
+
+@media(min-width:768px){
+	.main{
+		max-width: 1040px;
+		margin: 0 auto;
+		padding: 0 20px 0 20px;
+	}
+	.mainphoto{
+		maxwidth: 100%;
+		margin: 0 30px 20px 60px;
+	}
+	.mainNews h2{
+		background-color: #63B229;
+		padding-top:10px;
+	    padding-bottom: 10px;
+	    padding-left: 10px;
+	    margin-bottom: 10px;
+	    width:  540px;
+	    color: #fff;
+	    font-size: 17px;
+	}
+	.main_bnr{
+	padding-bottom: 8px;
 }
-#mainInner{
-	overflow: hidden;
+	.mainNews ul{
+	padding-left: 0px;
+	width: 513px;
 }
-main h2{
-    background-color: #63B229;
+.mainNews ul li{
+	padding: 15px 0 7px 0px;
+	border-bottom: 1px dotted #C47944;
+}
+.mainNews li time{
+	display: inline-block;
+	width: 130px;
+	font-weight: 500;
+	text-indent: 0;
+}
+	.sub ul{
+		flex-direction: row;
+	}
+	.sub ul li{
+		margin: 0 10px;
+	}
+}
+
+.main{
+	padding: 0 4% 0 4%;
+	margin-top: 10px;
+}
+.mainphoto{
+	margin-bottom: 10px;
+}
+.mainNews h2{
+	 background-color: #63B229;
 	padding-top:10px;
 	padding-bottom: 10px;
 	padding-left: 10px;
-	width:  760px;
+	margin-bottom: 10px;
+	color: #fff;
+	font-size: 17px;
 }
-main p{
+.main_bnr{
+	padding-bottom: 8px;
+}
+	.mainNews ul{
+	padding-left: 0px;
+}
+.mainNews ul li{
+	padding: 15px 0 7px 0px;
+	border-bottom: 1px dotted #C47944;
+}
+.mainNews li time{
+	display: inline-block;
+	font-weight: 500;
+	text-indent: 0;
+	width: 88px;
+}
+.page_top{
+	width: 150px;
+	margin: 0 0 0 auto;
+}
+.page_top a{
+	color: #4D200C;
+}
+.page_top a:hover {
+  color: #F5C318; /* カーソルをリンクの上に乗せたときの背景色 */
+}
+/**
+ * ***************************************
+ * パンくずリスト
+ * ***************************************
+ *
+ * パンくずリストコンテナ
+ */
+.breadcrumb{
+	display: none;
+}
+@media(min-width:768px){
+	/* pcだけスタイル適用 */
+	.breadcrumb{
+		display: block;
+	}
+}
+.breadcrumb ul{
+	display: flex;/* 子要素(li)を横一列に並べる */
+    list-style-type: none; /* リスト要素に表示されている"・"を非表示 */
+}
+.breadcrumb li{
+  padding: 5px; /* リンク間の間隔を調整 */
+  color: #4D200C; /* リンクの文字色を調整 */
+  text-decoration: none; /* リンクの下線を非表示 */
+}
+.breadcrumb li a{
+  color: #4D200C; /* リンクの文字色を調整 */
+  text-decoration: none; /* リンクの下線を非表示 */
+}
+.breadcrumb li a:hover {
+  color: #F5C318; /* カーソルをリンクの上に乗せたときの背景色 */
+}
+/* メイン エリア */
+
+
+/* フッター エリア */
+.footer_nav1{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+.footer_nav1 li{
+	margin: 0 0 2rem 0;
+	font-size: .875rem;
+}
+.footer_nav1 li a{
+    color: #fff; 
+    text-decoration: none; 
+}
+.footer_nav1 li a:hover{
+	color:#F5C318;
+}
+.footer_logo img{
+	margin:0 auto;
+	padding:10px; 
+}
+.footer_contens{
+	text-align: center;
+}
+.footer_reserve ul{
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.footer_reserve ul li{
+	margin-top: 20px;
+}
+.copyright{
+	font-size: .75rem;
+	color: #4D200C;
+	text-align: center;
+}
+.footer_inner{
+	background: #63B229;
+}
+@media(min-width:768px){
+.footer_nav1{
+	flex-direction: row;
+	justify-content: center;
+}
+.footer_nav li{
+	margin: 0 1rem;
+}
+	.footer_logo{
+		
+	}
+}
+
+/* アクセスページのCSS */
+.mainMap h2{
+	 background-color: #63B229;
+	padding-top:10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	color: #fff;
+	font-size: 17px;
+}
+.mapContents{
+	text-align: center;
+	margin-top: 30px;
+}
+.mapContents figure{
+	display: inline-block;
+	margin: 0 auto;
+}
+.map_table{
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+.map_table th, table td{
+	padding: 15px;
+}
+.mapContents table th{
+	width: 80px;
+	text-align: left;
+}
+.map_table td{
+	border-bottom: 0.1px solid #954A2B;
+}
+.map_table th{
+	border-bottom: 0.1px solid #954A2B;
+}
+
+/* 診療案内ページのCSS */
+.mainServices h2{
+	background-color: #63B229;
+	padding-top:10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	color: #fff;
+	font-size: 17px;
+}
+.services{
+	text-align: center;
+	margin-top: 30px;
+}
+.services_table{
+	display: inline-block;
+	border-collapse: collapse;
+	table-layout: auto;
+	border: 1px solid #D9E8EB;
+}
+.services table th{
+	background-color:aliceblue;
+	border-bottom: 1px solid #D9E8EB;
 	padding: 10px;
 }
-#mainInner{
+.services table td{
+	text-align: center;
+	width: 29px;
+	border-bottom: 1px solid #D9E8EB;
+}
+.services ul{
+	padding-top: 30px;
+}
+.services li{
+	padding-bottom: 10px;
+}
+/* 医院紹介ページのCSS */
+.mainAbout h2{
+	 background-color: #63B229;
+	padding-top:10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	color: #fff;
+	font-size: 17px;
+}
+.aboutContents{
+	text-align:left;
+	margin-top: 30px;
+}
+.greeting figure{
+	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.greeting figcaption{
+	text-align: center;
+	margin-top: 17px;
+}
+.about{
+	padding: 10px 0 10px 10px;
+	border-left: solid 4px #ffaf58;
+    margin-bottom: 20px;
+	margin-top: 10px;
+}
+.greeting{
 	overflow: hidden;
-	width: 550px;
 }
-#main_bnr{
-	float: right;
-	width:201px;
+.greeting_contents{
+	margin-top: 20px;
+	display: inline-block;
+	text-align: center;
 }
-#main_bnr li{
-	margin-bottom: 5px
+.greeting_contents h4{
+	border-bottom: solid 1px #C47944;
+	padding: 20px 0 5px 5px;
+	margin-bottom: 10px;
 }
-
-
-
+.greeting_contents ul{
+	margin-left: 10px;
+}
+/* 施設紹介ページのCSS */
+.mainClinic h2{
+	background-color: #63B229;
+		padding-top:10px;
+	    padding-bottom: 10px;
+	    padding-left: 10px;
+	    margin-bottom: 10px;
+	    width:  540px;
+	    color: #fff;
+	    font-size: 17px;
+}
+.gallery_box{
+      width: 80%;
+	 margin: 0 auto;
+	max-width: 500px;
+	padding-top: 30px;
+}
+.gallery_box img{
+	 width: 90%;
+	 margin: 0 auto;
+}
+@media(min-width:768px){
+	.clinic{
+		width:760px;
+		height: 750px;
+		overflow: hidden; 
+	}
+	.clinic::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+	.gallery_box{
+		float: left;
+		margin:5px;
+		width: 245px;
+		height: 193px;
+	}
+	.mainClinic h2{
+		width:100%;
+	}
+}
+/* お問い合わせページのCSS */
+.contact{
+	float: left;
+}
+.contact_contents{
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+form p{
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
+form p:nth-last-child(2){
+	margin-bottom: 7px;
+}
+form p:last-child{
+	margin-bottom: 0;
+}
+input[type="text"]{
+	width:200px;
+	height: 20px;
+}
+input[type="tel"]{
+	width:200px;
+	height: 20px;
+}
+input[type="email"]{
+	width:300px;
+	height: 20px;
+}
+input[type="radio"]{
+	margin-right: 10px;
+	margin-left: 5px;
+	text-align: center;
+}
+textarea {
+	width:350px;
+	height: 120px;
+	overflow-y: scroll;
+}
+select{
+    width:300px;
+	height: 26px;
+}
+.mainContact h2{
+	background-color: #63B229;
+	padding-top:10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	color: #fff;
+	font-size: 17px;
+}
+@media(max-width:768px){
+	.contact{
+		margin: 20px;
+		width:80%;
+	}
+}
