@@ -165,44 +165,6 @@ nav{
  height: 70px;
  padding: 0 1em;
 }
-/*----------------------------------ここからPCモニターの記述-----------*/
-@media screen and (min-width: 768px) {
-/*ロゴの大きさを調整*/
-.header-logo{
-	width:262px;
-	margin-left: 40px;}	
-	
-nav{
- display: flex;
- max-width: 1050px;
-}
- 
-.Toggle{
- display: none;
-}
-.menu{
-width: 100%;
-font-size:0.9em;
-background-color: transparent;
-margin:0 10px;
--webkit-transform: translateX(0);
-transform: translateX(0);
-}
-.menu ul{
- height: 70px;
- display: flex;
- flex-wrap: wrap;
- justify-content: flex-end;
- align-items: center;
-}
-.menu ul li a{
- padding: 0 1em;
- border-bottom: none;
-}
-.menu ul li a:hover{
-background-color:transparent;
-}
-}
 /*ナビゲーション部分*/
  
 .menu ul li a {
@@ -282,8 +244,44 @@ color:#F5C318;
     -moz-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+/*----------------------------------ここからPCモニターの記述-----------*/
+@media screen and (min-width: 768px) {
+/*ロゴの大きさを調整*/
+.header-logo{
+	width:262px;
+	margin-left: 40px;}	
+	
+nav{
+ display: flex;
+ max-width: 1050px;
+}
  
-
+.Toggle{
+ display: none;
+}
+.menu{
+width: 100%;
+font-size:0.9em;
+background-color: transparent;
+margin:0 10px;
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+.menu ul{
+ height: 70px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: flex-end;
+ align-items: center;
+}
+.menu ul li a{
+ padding: 0 1em;
+ border-bottom: none;
+}
+.menu ul li a:hover{
+background-color:transparent;
+}
+} 
 .sub{
 	display: flex;
 	margin: 0 auto;
