@@ -20,7 +20,6 @@ img{
 	display: block;
 }
 body{
-	/* maxwidth:1000px; */
 	font-size: 14px;
 	color:#4D200C;
 	font-family: 'Noto Sans JP', sans-serif;
@@ -39,120 +38,7 @@ img{
 	height:auto;
 	vertical-align: bottom;
 }
-/**
- * ***************************************
- * ヘッダー
- * ***************************************
- *
- * ヘッダーコンテナ
- 
-@media(min-width:768px){
-	.headerInner{
-		margin: 0 auto;
-		padding: 0 20px;
-		max-width: 1040px;
-	}
-}*/
-/**
- * ---------------------------------------
- * ヘッダーモジュール
- */
 
-/* ヘッダーロゴとモバイルナビボタン 
-  .sitetitle {
-    display: flex;
-	justify-content:space-around;
-	text-align: center;
-}*/
-/* ヘッダーロゴ スマホ用*/
-
-/* ヘッダーロゴ PC用
-@media(min-width:768px){
-	.header-logo{
-		padding-left: 15px;
-	}
-	.header-logo img{
-		width: 262px;
-	}
-	.img_tel{
-		margin-left: 200px;
-		margin-top: 12px;
-	}
-	.btn_reserve{
-		margin-top: 2px;
-		margin-left: 10px;
-	}
-}*/
-/* モバイル向けボタン 
-.navbtn {
-  display: block;
-  width: 40px;
-  height: 40px;
-  background-image: url("../images/btn.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.navbtn.close{
-  background-image: url("../images/btn_close.svg");
-}
-@media(min-width:768px){
-	.navbtn{
-		display: none;
-	}
-}
-
-@media screen and (max-width: 768px){
-.header-nav{
-	display: flex;
-	flex-direction: column;
-	margin: 0;
-	padding: 0;
-		background: #63B229;
-	}
-	.header-nav ul{
-		height: 40px;
-	}
-	.header-nav li{
-		padding: 0 auto;
-	}
-.header-nav ul li a{
-        display: block;
-	   font-weight:bold;
-	    padding: 2em;
-	    border-bottom:1px dashed #C47944; 
-		text-decoration: none;
-        color:#FFFFFF;
-	    margin: 0 auto;
-	    
-	}
-.header-nav li a:hover{
-	  background: #b1d994;
-	  
-	}
-}
-@media(min-width:768px){
-/*PC向けレイアウト
-	    nav{
-		text-align: center;
-		background: #63B229;
-	}
-	nav ul{
-		display: flex;
-		height: 47px;
-		overflow: hidden;
-	}
-	nav li{
-		display: inline-block;
-        width:100%;
-		padding-top: 13px;
-	}
-	nav li a{
-        overflow: hidden;
-		text-decoration: none;
-        color:#FFFFFF;
-	}
-}
-*/
 nav{
  width: 100%;
  height: 70px;
@@ -176,7 +62,7 @@ display:block;
 padding: 2em;
 border-bottom: 1px dotted #CCC;
   color:#63B229;
- font-size: 13px;
+ font-size: 16px;
   text-decoration:none;
 }
 .menu ul li a:hover
